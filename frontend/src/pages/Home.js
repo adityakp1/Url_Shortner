@@ -15,7 +15,6 @@ const Home = () => {
     const [expiryTime, setExpiryTime] = useState("");
     const [maxClicks, setMaxClicks] = useState("");
     const [shortUrl, setShortUrl] = useState("");
-    const BACKEND = process.env.BACKEND_URL;
 
     const handleShorten = async (e) => {
         e.preventDefault();
@@ -66,9 +65,9 @@ const Home = () => {
                     </motion.h1>
                     <p>A short link allows you to collect valuable data on your customers & their behaviors.</p>
                     <div className="shorten-box">
-                        <input type="text" value={longUrl} onChange={(e) => setLongUrl(e.target.value)} placeholder="Paste a link to shorten it..." />
-                        <input type="number" value={expiryTime} onChange={(e) => setExpiryTime(e.target.value)} placeholder="Expire in seconds...(Optional)" />
-                        <input type="number" value={maxClicks} onChange={(e) => setMaxClicks(e.target.value)} placeholder="Max Clicks...(Optional)" />
+                        <input type="text" value={longUrl || ""} onChange={(e) => setLongUrl(e.target.value)} placeholder="Paste a link to shorten it..." />
+                        <input type="number" value={expiryTime || ""} onChange={(e) => setExpiryTime(e.target.value)} placeholder="Expire in seconds...(Optional)" />
+                        <input type="number" value={maxClicks || ""} onChange={(e) => setMaxClicks(e.target.value)} placeholder="Max Clicks...(Optional)" />
                         <button className="btnShorten" onClick={handleShorten}>
                             <FaRocket /> Shorten
                         </button>

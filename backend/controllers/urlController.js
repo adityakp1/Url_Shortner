@@ -2,6 +2,7 @@ const admin = require("firebase-admin"); // 🔥 Import admin
 const db = require("../config/firebase"); // Ensure Firestore is properly initialized
 const shortid = require("shortid");
 const useragent = require("useragent");
+const BACKEND = process.env.BACKEND_URL || "https://typical-ted-sparkkandromeda-28a55571.koyeb.app";;
 
 // ✅ Shorten a URL
 exports.shortenUrl = async (req, res) => {
@@ -30,7 +31,6 @@ exports.shortenUrl = async (req, res) => {
         await db.collection("urls").doc(shortUrl).set(newUrl);
         console.log("Short URL created:", shortUrl);
 
-        const BACKEND = process.env.BACKEND_URL;
         res.json({ shortUrl: `${BACKEND}/${shortUrl}` });
     } catch (error) {
         console.error("Error creating short URL:", error);
