@@ -21,7 +21,7 @@ const Home = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`http://localhost:5000/shorten`, {
+            const res = await axios.post(`https://typical-ted-sparkkandromeda-28a55571.koyeb.app/shorten`, {
                 longUrl,
                 customAlias,
                 expiryTime: expiryTime ? parseInt(expiryTime) : null,
